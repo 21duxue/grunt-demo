@@ -1,0 +1,17 @@
+@yellow:yellow;
+
+a{
+  backgroud-color: red;
+}
+
+.box(@width,@height,@color){
+  width :@width;
+  height: @height;
+  background-color:@color;
+}
+.small{
+  .box(100px,50px,green);
+}
+.big{
+  .box(300px,200px,red);
+}
