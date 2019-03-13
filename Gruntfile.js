@@ -1,19 +1,20 @@
 module.exports = function (grunt) {
   grunt.initConfig({
-    htmlmin:{
-      options:{
-
+    sprite: {
+      all: {
+                src: 'images/*.png',
+                dest: 'dist/spritesheet.png',
+               destCss: 'dist/sprites.css'
+                                                    
       }
+          
     }
       
   });
 
-    grunt.loadNpmTasks('grunt-mocha-cli');
-    grunt.loadNpmTasks('grunt-mocha-istanbul');
+    grunt.loadNpmTasks('grunt-spritesmith');
 
-    grunt.registerTask('default', ['mochacli']);   
-    grunt.registerTask('cover', ['mocha_istanbul']);
-    grunt.registerTask('check-cover', ['istanbul_check_coverage']);
+      grunt.registerTask('default', ['sprite']);
 
 };
 
