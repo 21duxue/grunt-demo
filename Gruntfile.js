@@ -1,19 +1,23 @@
 module.exports = function (grunt) {
   grunt.initConfig({
-    htmlmin:{
-      options:{
-
-      }
-    }
+    cssmin:{
+      options: {
+            mergeIntoShorthands: false,
+            roundingPrecision: -1
       
+      },
+      target: {
+         files: {
+            'rectangle.min.css': 'rectangle.css'
+        }
+             
+  }
+    }   
   });
 
-    grunt.loadNpmTasks('grunt-mocha-cli');
-    grunt.loadNpmTasks('grunt-mocha-istanbul');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-    grunt.registerTask('default', ['mochacli']);   
-    grunt.registerTask('cover', ['mocha_istanbul']);
-    grunt.registerTask('check-cover', ['istanbul_check_coverage']);
+    grunt.registerTask('default', ['cssmin']);
 
 };
 
