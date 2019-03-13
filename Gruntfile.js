@@ -1,19 +1,21 @@
 module.exports = function (grunt) {
   grunt.initConfig({
-    htmlmin:{
-      options:{
-
+    uglify: {
+      my_target: {
+        files: {
+                  'dest/min.js': 'rectangle.js'
+          
+        }
+                   
       }
+                   
     }
       
   });
 
-    grunt.loadNpmTasks('grunt-mocha-cli');
-    grunt.loadNpmTasks('grunt-mocha-istanbul');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.registerTask('default', ['mochacli']);   
-    grunt.registerTask('cover', ['mocha_istanbul']);
-    grunt.registerTask('check-cover', ['istanbul_check_coverage']);
+    grunt.registerTask('default', ['uglify']);   
 
 };
 
