@@ -1,19 +1,28 @@
 module.exports = function (grunt) {
   grunt.initConfig({
-    htmlmin:{
-      options:{
-
+    run: {
+      api: {
+          options: { wait: false  },
+          args: ['./app.js']
+          
       }
-    }
-      
+               
+    },
+  mochacli: {
+  options: {
+              reporter: 'spec',
+          bail: true
+          
+    },
+          all: ['test/*.js']
+                           
+  }
+    
   });
 
-    grunt.loadNpmTasks('grunt-mocha-cli');
-    grunt.loadNpmTasks('grunt-mocha-istanbul');
+    grunt.loadNpmTasks('grunt-run')
+    grunt.loadNpmTasks('grunt-mocha-cli')
 
-    grunt.registerTask('default', ['mochacli']);   
-    grunt.registerTask('cover', ['mocha_istanbul']);
-    grunt.registerTask('check-cover', ['istanbul_check_coverage']);
+    grunt.registerTask('default', ['run', 'mochacli', 'stop:api']);
 
 };
-
